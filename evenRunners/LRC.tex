@@ -1,0 +1,302 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{sectsty}
+\sectionfont{\centering}
+\begin{document}
+
+\title{The Lonely Runner Conjecture}
+\author{Jonas Örnfelt}
+%\date{}
+\maketitle
+
+\section*{Introduction}
+My name is Jonas Örnfelt, I'm 23 years old and from Sweden. I stumbled upon a site containing a list of unsolved problems in mathematics back in May, 2016 and the lonely runner conjecture was a problem that stood out to me. Curiosity made me start investigating the problem and since the case for $k=8$ is unsolved, that's naturally where I started. 
+\newline
+\newline
+The conjecture asserts that if you have a circle-shaped path with a length of one unit and k amount of runners running around it, where the runners have different velocities, does there exist a time t for every runner, when the runner is lonely? The definition of lonely is that the distance of a runner has to be at least $1/k$ from each other runner (1 being the circumference of the circle).
+\newline
+\newline
+The following take on the lonely runner conjecture is assembled by looking at the difference in velocities, instead of the velocities themselves. By first showing how a certain runner is never lonely when there is 9 ($k+1$) runners, a case will be presented for why this number of runners is the minimum amount required for a runner to never be lonely for the case k.
+
+\section*{Proof}
+The time $t$ when the distance between two runners is $1/k$ can be written as: $\frac{1/k}{\Delta v}$.\newline Obviously, a runner can't be lonely until the distance between the slowest $\Delta v$ is $\frac{1/k}{\Delta v}$.\newline Let us introduce a variable i, which will be used throughout the paper. This variable is any positive integer. Let's also call the slowest $\Delta v$: $\Delta v(s)$.\newline
+We then know the time when the runner is lonely is $\frac{1/k}{\Delta v(s)}$ at least. If the runner isn't lonely at that exact time, there has to be another ${\Delta v}$ with the value of: $> \Delta v(s)\times(7+8i)$ and $< \Delta v(s)\times(9+8i)$.
+\subsection*{Lemma 1.}\textit{Let the slowest $\Delta v$ be called: $\Delta v(s)$, then for a runner to not be lonely at the time $t = \frac{1/k}{\Delta v(s)}$, another $\Delta v$ having the value: $> \Delta v(s)\times(7+8i)$ and $< \Delta v(s)\times(9+8i)$ is required.}
+\newline
+\newline
+For the general case, another $\Delta v$ with the value of: $> \Delta v(s)\times((k-1)+(ki))$ and $< \Delta v(s)\times(k+1)+(ki))$ is required.
+\newline
+\newline
+\textbf{End of Lemma 1.}
+\newline
+\newline
+This is another way to look at the problem, using proof by contradiction. For a runner to never be lonely, at $t= \frac{i+(1/k)}{\Delta v}$ there must be another $\Delta v$ which prevents it from being lonely. And this must be true for every different $\Delta v$ for a certain runner.
+Looking at the correlation between two different $\Delta v$, let's call them $\Delta v(x)$ and $\Delta v(y)$, $\Delta v(x)$ being the difference in velocity between a runner $x$ and a runner $z$ and $\Delta v(y)$ being the difference in velocity between a runner $y$ and the runner $z$, we can use the ratio of the two $\Delta v$-values $\frac{\Delta v(x)}{\Delta v(y)}$ to see what the distance is between runner $y$ and $z$, at the time $t$, when the distance between runner $x$ and $z$ is a certain distance. 
+\newline
+\newline
+An example of this is: $\frac{\Delta v(x)}{\Delta v(y)} = 0.5$
+This tells us that when $\Delta v(y)$ has a distance of $0.125$ between the runner $y$ and $z$, $\Delta v(x)$ has a distance of $0.0625$ away from runner $x$ or $z$. Observe that it's the decimals that are important: $0.0625$ is less than $1/k$ and therefore the runner is not lonely at this time $t$, when the distance of $\Delta v(y)$ equals $1/k$.
+\newline
+\newline
+Using the ratio of $\Delta v$-values a proof can be constructed that shows how a certain runner is never lonely if you allow there to be $k+1$ runners instead of $k$ runners. So, this doesn't disprove the conjecture, but is necessary to go through because the proof further argues that $k+1$ runners is the minimum amount required for a runner to never be lonely. For this case, where $k=8$, the values of the $8$ different $\Delta v$ are: $\Delta v(s)\times8$, $\Delta v(s)\times7$, $\Delta v(s)\times6$, $\Delta v(s)\times5$, $\Delta v(s)\times4$, $\Delta v(s)\times3$, $\Delta v(s)\times2$, and $\Delta v(s)$.
+
+\subsection*{Theorem 2.}\textit{With a total of $8 (k)$ $\Delta v$ with the values $\Delta v(s)\times8$, $\Delta v(s)\times7$ ... $\Delta v(s)\times1$ a runner is never lonely.}
+\newline
+\newline
+A more thorough explanation of what ratios of two different $\Delta v$ is that the ratio multiplied with a positive integer $i+(1/k)$ needs to have decimals $< 1/k$ or, $> \frac{((k+8i)-1))}{k}$ and $< \frac{((k+8i)+1)}{k}$. This is the position required for the runner not to be lonely, when the decimals equals $< 0.125$ or, $> 0.875$ and $< 1.125$, or $> 1.875$ and $< 2.125$ etc...
+\newline
+\newline
+Let $p$ be defined as period which will desribe how long it takes for a ratio of $\frac{\Delta v(x)}{\Delta v(y)}$ to return to the same decimals. The amount of p is the values fraction (if both $\Delta v(x)$ and $\Delta v(y)$ are integers, otherwise the period is found by further looking at the greatest common divisor). Halves have a period of $2p$, thirds have a period of $3p$ etc...
+\newline
+\newline
+\textbf{2p:}
+p = $2$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ halves
+\newline
+\newline
+$0.125\times0.5 = \underline{0.0625} \newline 1.125\times0.5 = 0.5625 \newline 2.125\times0.5 = \underline{1.0625} \newline \newline 0.125\times3.5 = 0.04375 \newline 1.125\times3.5 = \underline{3.9375} \newline 2.125\times3.5 = 7.4375$
+\newline
+\newline
+The decimals returns after 2 periods. That's the case because $1.125\times0.5$ equals $0.125\times0.5+0.5$ and $2.125\times0.5$ equals $0.125\times0.5+0.5\times2$.
+\newline
+It's necessary to note from this, that the value of $\frac{\Delta v(x)}{\Delta v(y)} = 0.5$ prevents the runner from being lonely at $0.125+2p$ and $\frac{\Delta v(x)}{\Delta v(y)} = 3.5$ prevents the runner from being lonely at $1.125+2p$. The combination of the two values leads to the runner never being lonely for this specific $\Delta v$, because $0.125+2p$ and $1.125+2p$ contains every integer.
+\newline
+\newline
+There is also values for: \newline
+\textbf{1p:}
+p = $1$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ a product of $8$
+\newline
+\newline
+$0.125\times8 = \underline{1} \newline 1.125\times8 = \underline{2} \newline 2.125\times8 = \underline{3}$
+\newline
+\newline
+If $\frac{\Delta v(x)}{\Delta v(y)}$ equals a product of $8$, the $\Delta v(y)$ only requires $\Delta v(x)$ to never be lonely. This is true because, as in the last one with $2p$, $0.125+1p$ contains every positive integer there is. In order to prove that $8 (k) \Delta v$ with the values of $\Delta v(s)\times8$, $\Delta v(s)\times7$ ... $\Delta v(s)\times1$ result in the runner never being lonely we need to look at values between $1p-8p$.
+\newline
+\newline
+\textbf{3p:}
+p = $3$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ thirds
+\newline
+\newline
+$0.125\times0.333... = \underline{0.041...} \newline 1.125\times0.333... = 0.375 \newline 2.125\times0.333... = 0.708... \newline 3.125\times0.333... = \underline{1.041...} \newline$ For $\frac{\Delta v(x)}{\Delta v(y)} = 0.333...$: Runner not lonely when $0.125+3p$.
+\newline
+\newline
+$0.125\times0.666... = \underline{0.083...} \newline 1.125\times0.666... = 0.75 \newline 2.125\times0.666... = 1.416... \newline 3.125\times0.666... = \underline{2.083...} \newline$ For $\frac{\Delta v(x)}{\Delta v(y)} = 0.666...$: Runner not lonely when $0.125+3p$.
+\newline
+\newline
+$0.125\times2.333... = 0.291... \newline 1.125\times2.333... = 2.625 \newline 2.125\times2.333... = \underline{4.958...} \newline$ For $\frac{\Delta v(x)}{\Delta v(y)} = 2.333...$: Runner not lonely when $2.125+3p$.
+\newline
+\newline
+$0.125\times2.666... = 0.333... \newline 1.125\times2.666... = \underline{3} \newline 2.125\times2.666... = 5.666... \newline$ For $\frac{\Delta v(x)}{\Delta v(y)} = 2.666...$: Runner not lonely when $1.125+3p$.
+\newline
+\newline
+Hopefully it's now more clear for the reader how this method operates. The remaining periods $4p-8p$ will be written in a cleaner format.
+\newline
+\textbf{4p:}
+p = $4$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ fourths
+\newline
+\newline
+$0.25$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{4}$: Runner not lonely when $0.125+4p$. \newline $0.5$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{4}$: Runner not lonely when $0.125+2p$.\newline $0.75$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{4}$: Runner not lonely when $0.125+4p$. \newline $1.25$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{4}$: Runner not lonely when $3.125+4p$. \newline $1.75$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{4}$: Runner not lonely when $1.125+4p$.
+\newline
+\newline
+\textbf{5p:}
+p = $5$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ fifths
+\newline
+\newline
+$0.2$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{5}$: Runner not lonely when $0.125+5p$. \newline $0.4$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{5}$: Runner not lonely when $0.125+5p$.\newline $0.6$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{5}$: Runner not lonely when $0.125+5p$. \newline $0.8$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{5}$: Runner not lonely when $0.125+5p$ and $1.125+5p$. \newline $1.2$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{6}{5}$: Runner not lonely when $4.125+5p$. \newline $1.4$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{5}$: Runner not lonely when $2.125+5p$. \newline $1.6$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{8}{5}$: Runner not lonely when $3.125+5p$.
+\newline
+\newline
+\textbf{6p:}
+p = $6$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ sixths
+\newline
+\newline
+$0.166...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{6}$: Runner not lonely when $0.125+6p$. \newline $0.333...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{6}$: Runner not lonely when $0.125+3p$.\newline $0.5$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{6}$: Runner not lonely when $0.125+2p$. \newline $0.666...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{6}$: Runner not lonely when $0.125+3p$. \newline $0.833...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{6}$: Runner not lonely when $0.125+6p$ and $1.125+6p$. \newline $1.166...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{6}$: Runner not lonely when $5.125+6p$.
+\newline
+\newline
+\textbf{7p:}
+p = $7$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ sevenths
+\newline
+\newline
+$0.142...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{7}$: Runner not lonely when $0.125+7p$. \newline $0.285...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{7}$: Runner not lonely when $0.125+7p$ and $3.125+7p$.\newline $0.428...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{7}$: Runner not lonely when $0.125+7p$ and $2.125+7p$. \newline $0.571...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{7}$: Runner not lonely when $0.125+7p$ and $5.125+7p$. \newline $0.714...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{7}$: Runner not lonely when $0.125+7p$ and $4.125+7p$. \newline $0.857...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{6}{7}$: Runner not lonely when $0.125+7p$ and $1.125+7p$. \newline $1.142...$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{8}{7}$: Runner not lonely when $6.125+7p$.
+\newline
+\newline
+\textbf{8p:}
+p = $8$ when $\frac{\Delta v(x)}{\Delta v(y)} =$ eights
+\newline
+\newline
+$0.125$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{8}$: Runner not lonely when $0.125+8p$ and $7.125+8p$. \newline $0.25$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{8}$: Runner not lonely when $0.125+4p$.\newline $0.375$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{8}$: Runner not lonely when $0.125+8p$ and $5.125+8p$. \newline $0.5$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{8}$: Runner not lonely when $0.125+2p$. \newline $0.625$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{8}$: Runner not lonely when $0.125+8p$ and $3.125+8p$. \newline $0.75$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{6}{8}$: Runner not lonely when $0.125+4p$. \newline $0.875$: For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{8}$: Runner not lonely when $0.125+8p$ and $1.125+8p$.
+\newline
+\newline
+By observing these calculations a proof can be constructed that shows that the $8$ $\Delta v$-values result in the runner never being lonely. For simplicity's sake we can say that $\Delta v(s) = 0.1$, then the other values of $\Delta v = 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8$.
+\newline
+\newline
+As has been shown, if $\frac{\Delta v(x)}{\Delta v(y)} =$ a product of $8$ (which is the case for $\frac{0.8}{0.1}$) this leads to the runner never being lonely at the time $t = \frac{(i + 0.125)}{0.1}$
+For $\Delta v = 0.2$ we need to have a look at $\frac{\Delta v(x)}{0.2}$. If we have $\frac{\Delta v(x)}{0.2} = 0.5$ and $\frac{\Delta v(x)}{0.2} = 3.5$, the runner is not lonely at the time $\frac{(i+0.125)}{0.2}$.
+In this case we do have these values of $\Delta v(x)$. $\frac{0.1}{0.2} = 0.5$ and $\frac{0.7}{0.2} = 3.5$.
+\newline
+\newline
+$\frac{\Delta v(x)}{\Delta v(y)} = 0.5$ prevents the runner from being lonely at $t = 0.125+2p$
+$\frac{\Delta v(x)}{\Delta v(y)} = 3.5$ prevents the runner from being lonely at $t = 1.125+2p$
+Together, these two values prevents the runner from being lonely at $\frac{(i+0.125)}{0.2}$. Using the same method we need to look at the other $\Delta v$-values (periods):
+\newline
+\newline
+$\Delta v = 0.3$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{3}$: Runner not lonely when $0.125+3p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{3}$: Runner not lonely when $2.125+3p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{8}{3}$: Runner not lonely when $1.125+3p$.
+\newline
+\newline
+$\Delta v = 0.4$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{4}$: Runner not lonely when $0.125+2p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{4}$: Runner not lonely when $3.125+4p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{4}$: Runner not lonely when $1.125+4p$.
+\newline
+\newline
+$\Delta v = 0.5$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{5}$: Runner not lonely when $0.125+5p$ and $1.125+5p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{6}{5}$: Runner not lonely when $4.125+5p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{5}$: Runner not lonely when $2.125+5p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{8}{5}$: Runner not lonely when $3.125+5p$.
+\newline
+\newline
+$\Delta v = 0.6$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{6}$: Runner not lonely when $0.125+3p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{6}$: Runner not lonely when $0.125+2p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{6}$: Runner not lonely when $0.125+6p$ and $1.125+6p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{6}$: Runner not lonely when $5.125+6p$.
+\newline
+\newline
+$\Delta v = 0.7$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{2}{7}$: Runner not lonely when $0.125+7p$ and $3.125+7p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{7}$: Runner not lonely when $0.125+7p$ and $2.125+7p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{7}$: Runner not lonely when $0.125+7p$ and $5.125+7p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{7}$: Runner not lonely when $0.125+7p$ and $4.125+7p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{6}{7}$: Runner not lonely when $0.125+7p$ and $1.125+7p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{8}{7}$: Runner not lonely when $6.125+7p$.
+\newline
+\newline
+$\Delta v = 0.8$\newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{1}{8}$: Runner not lonely when $0.125+8p$ and $7.125+8p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{3}{8}$: Runner not lonely when $0.125+8p$ and $5.125+8p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{4}{8}$: Runner not lonely when $0.125+2p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{5}{8}$: Runner not lonely when $0.125+8p$ and $3.125+8p$. \newline For $\frac{\Delta v(x)}{\Delta v(y)} = \frac{7}{8}$: Runner not lonely when $0.125+8p$ and $1.125+8p$.
+\newline
+\newline
+We can now see that the runner with the velocity $0.1$ is never lonely. 
+For every $\Delta v$, there exists no such time $t = \frac{(i+0.125)}{\Delta v}$, where the runner is lonely. 
+With this method, a proof of why having $8(k)$ different $\Delta v$, like in the example above, is the minimum amount required to prevent a runner from ever being lonely. Let's start off with some undeniable facts - there has to be a maximum of $7$ different $\Delta v$, because there are a total of $8 (k)$ runners, if we are to stay within the rules of the conjecture. And there has to be a certain $\Delta v$ that are bigger than the others - meaning we need values of $\frac{\Delta v(x)}{\Delta v(y)}$ that are less than $1$, where $\Delta v(y)$ is the biggest $\Delta v$.
+\newline
+\newline
+If we look back at the values from $1p$ to $8p$ we can see that there is no combination of $\frac{\Delta v(x)}{\Delta v(y)}$ values less than $1$, that fills every integer until $8p$. Conclusively, we need a combination containing $7$ different $\Delta v$, where $\frac{\Delta v(x)}{\Delta v(y)}$ equals less than $1$ where $\Delta v(y)$ again, being the biggest value of those $\Delta v$) and the period $p$ is equal to or bigger than $8$.
+
+\subsection*{Claim 3.}\textit{The amount of runners from Theorem 2. is the minimum amount required for a runner to never be lonely.}
+\newline
+\newline
+In order to prove this claim a look at some characteristics that ratios of $\frac{\Delta v(x)}{\Delta v(y)}$ has will be required. These characteristics, or patterns, are divided into separate theorems themselves and by looking at them together the claim will be proven.
+
+\subsection*{Theorem 4.}\textit{There is no odd number for $\Delta v(x)$, for an even value of $\Delta v(y)$ that prevents the runner from being lonely at time $t = (\frac{p}{2}+1/k)\times (\frac{\Delta v(x)}{p})$.}
+\newline
+\newline
+For any even value of $\Delta v(y)$, for example $22 (period = 22)$, there is no odd number for $\Delta v(x)$ that prevents the runner from being lonely at the time: $\frac{p}{2}+\frac{1}{k}\times\frac{\Delta v(x)}{p}$.
+\newline
+\newline
+With $22$ as example there is no odd value for $\Delta v(x)$ where the decimals of $\frac{22}{2}+\frac{1}{k}\times\frac{\Delta v(x)}{22}$ makes it so the runner in question is lonely at that time. The decimals are always $> 0.125 (1/k)$ and $< 0.875 (\frac{k-1}{k})$. This holds true for values where $\Delta v(y) (p) > 4$ and $\Delta v(x)$ is an odd number. This will be demonstrated further now with examples. Even numbers of $\Delta v(x)$ are irrelevant because if both $\Delta v(y)$ and $\Delta v(x)$ are even, the ratio of $\frac{\Delta v(x)}{\Delta v(y)}$ can be simplified further.
+\newline
+\newline
+Visual example with 22: \newline
+$(\frac{22}{2} + \frac{1}{8})\times\frac{1}{22} > \frac{1}{8}$ and $<\frac{7}{8} \newline \rightarrow 11.125\times\frac{1}{22} \rightarrow \frac{22}{2}\times\frac{1}{22}+\frac{1}{8}\times\frac{1}{22} = \frac{22}{44}+\frac{1}{176} = \frac{11}{22}+\frac{1}{22\times8}\newline \newline \frac{11}{22}+\frac{1}{22\times8}\rightarrow 0.5 + \frac{x}{22\times8}\newline\newline 11.125\times\frac{1}{22} = 0.505... \newline 11.125\times\frac{3}{22} = 1.517... \newline .... \newline 11.125\times\frac{11}{22} = 5.5625 \newline ... \newline 11.125\times\frac{21}{22} = 10.619...$\newline As can be seen for $p:22$: odd numbers can't reach the requirement because the decimals are always $> \frac{1}{8}$ and $< \frac{7}{8}$, because it can only range between $0.5 + 0.005...$ to $0.5+(\frac{22}{176} \rightarrow 0.5 + 0.125$.\newline \newline Examplewith 14: \newline $7.125\times(\frac{1}{14}) = 0.5089... \newline 7.125\times(\frac{13}{14}) = 6.616...$
+\newline
+\newline
+For even numbers, let x be an even number: $1 + \frac{x}{22\times8} \newline (\frac{22}{2} + \frac{1}{8})\times\frac{2}{22} = \frac{44}{44}+\frac{2}{176}$.
+\subsection*{Theorem 5.}\textit{For odd values of $\Delta v$ (period), a $\Delta v$ that equals $8$, or a product of $8$, is required for the runner to never be lonely.}
+\newline
+\newline
+Another characteristic the ratio of $\frac{\Delta v(x)}{\Delta v(y)}$ has is that when the value is an odd number, or more specifically when the period is an odd number, then to fill every number it needs a $\Delta v$ that equals $8$, or a product of $8$. \newline If we have a look at the odd periods, like $3$, $5$ and $7$, we see that a certain positive integer $i+0.125$ multiplied with all different third fractions ($\frac{1}{3}, \frac{2}{3}$ etc...) always equals a certain eight fraction. Lets have a look at $3$ and $5$ to get a better understanding.
+\newline
+\newline
+For $3p$: 
+$1.125\times\frac{1}{3} = \frac{9}{8}\times\frac{1}{3} = \frac{3}{8} \newline 1.125\times\frac{2}{3} = \frac{9}{8}\times\frac{2}{3} = \frac{6}{8} \newline 1.125\times\frac{8}{3} = \frac{9}{8}\times\frac{8}{3} = 3$.\newline $\frac{8}{3}$, or $\frac{16}{3}$, or $\frac{24}{3}$ etc... Is the only third fractions that, when multiplied by $1.125$, equals an integer. This means that there's no other values that prevents the runner from being lonely at $1.125+3p$.
+\newline
+\newline
+For $5p$: 
+$3.125\times\frac{1}{5} = \frac{5}{8} \newline 3.125\times\frac{2}{5} = \frac{10}{8} \newline 3.125\times\frac{8}{5} = \frac{40}{8} = 5$
+\newline
+\newline
+Naturally I tried to develop a proof that only $8$, or some product of $8$, divided by an odd number is the only value that result in an integer, and also why an integer $+0.125\times$ fractions of an odd number always equals some eight fraction. The reason why only $8$ divided by an odd number is the only value that leads to an integer is fairly easy to see. If we again look at $3p$ and $5p$, and let's use $x$ and $y$ as positive integers.
+$\frac{x^2}{8}\times\frac{y}{x}$ equals $\frac{yx}{8}$ as can be seen below: \newline $\frac{9}{8}\times\frac{1}{3} = \frac{\frac{1}{8\times9}}{3} = \frac{1}{8\times3} = \frac{3}{8} \qquad \frac{9}{8}\times\frac{2}{3} = \frac{\frac{2}{8\times9}}{3} = \frac{2}{8\times3} = \frac{6}{8}$.
+\newline
+\newline
+when $y=8$, it follows that: $\frac{x^2}{8}\times\frac{8}{x}=\frac{x^2}{x}$ (The two $8$'s cancel each other out). \newline $\frac{9}{8}\times\frac{8}{3}= \frac{9}{3} = 3$. Now, let's look at why a certain number$+0.125$ times fractions of an odd number always equals some eight fraction. Again, using $x$ and $y$ as positive integers. As you may have noticed, for an odd number $x$ it seems like $\frac{x^2}{8}$ is the number that when multiplied by $\frac{8}{x}$ equals some positive integer This holds true for odd numbers $< 8$. For odd numbers $> 8$ it is always $(x-8y)\times x$ (when $8y < x$).
+\newline
+\newline
+For the first odd number $> 8$, which is $9$: \newline
+$9-8= 1 \rightarrow 1\times9= 9 \newline \frac{9}{8}\times\frac{1}{9} = \frac{1}{8} \newline \frac{9}{8}\times\frac{8}{9} = \frac{9}{9} = 3$. \newline
+Finding this number is resemblant to looking for the greatest common divisor between two numbers. For example $9= 8\times1+1$ \newline
+The last number is the number to be multiplied with the odd number $x$ (If $x > 8$.) And it should then be equal $(8y)+1$ (where y is a positive integer).\newline
+There's a simple reason to why it's that specific remainder that, when multiplied by the odd number $x$ will equal some product of $8 (+1)$. As previously mentioned, for an odd number $x$ which is less than $8$ it follows that $x^2$ equals some product of $8+1$. 
+If you take an odd number $x$ which is more than $8$ it will always have the same decimals as another odd number less than $8$.
+\newline
+\newline
+So, to find what product of $8$ ($+1$) that equals an odd number $x$ multiplied with the remainder of $x= 8\times y$ (where $y$ is the biggest possible integer that can be multiplied with $8$ and be less than $x$), we write it as: $\frac{x-8y}{8}\times x$, this multiplied with $8$ equals $x$ multiplied with the remainder of $x= 8\times y$ (where $y$ is the same as in the last bracket).
+\newline
+\newline
+Example: $x=15$ \newline $(15-8\times\frac{1}{8})\times 15 \rightarrow (\frac{7}{8})\times 15 \rightarrow (\frac{15\times7}{8}$.
+So, for $x=15$, $(\frac{x-8}{8})\times x \times 8$ should equal $x \times (x-8)$, which is clearly true if we simplify the left side a bit. $(\frac{x-8}{8}\times x \times 8 \rightarrow x^2-8x = x\times (x-8)$.
+\newline
+\newline
+$\frac{1+8p}{8}$ is every positive integer $+ 0.125$. (like $1.125$, $2.125$, $3.125$ etc...). \newline $1+8p= \frac{1}{8}$, $\frac{9}{8}$, $\frac{17}{8}$, $\frac{25}{8}$, $\frac{33}{8}$ etc... \newline Some number contained in $1+8p$ is divisible by an odd number $x$. This is true for every positive odd number $x$. 
+
+\subsection*{Theorem 6.}\textit{A set of $7$ $\Delta v$ that are only even values cannot prevent a runner from being lonely.}
+\newline
+\newline
+Having only even values of $\Delta v$, or periods, cannot prevent a runner from being lonely due to the fact that, having only even values does always result in odd periods appearing. As has been established, it's the fraction of the ratio of two $\Delta v$-values that determines it's period. And, if we would have a look at the period $50$ and only include ratios where $\frac{\Delta v(x)}{\Delta v(y)}$ are even values.
+\newline
+\newline
+The first ratio in descending order is $\frac{48}{50}$, which will result in a period of $25$ because both $\Delta v$ can be simplified by dividing them by $2$. So, the period becomes odd anyway. If we take the next even period, the period $48$, then we have an even period, and $\frac{46}{48}$, which is okay since both are even, but then looking at the values for period: $46$, it will result in an odd period again. The rest of the even values follow this same pattern, where every other even period actually is odd, and every other is even.
+\subsection*{Theorem 7.}\textit{Having $\Delta v$-values that instead of $8$, has values resulting in a period with the value of another product of $8$, can't prevent the runner from being lonely.}
+\newline
+\newline
+Since, it follows from theorem 6. that an odd period is required, it is necessary for there to be a $\Delta v$ that equals $8$, or some product of $8$, according to theorem.5. It would therefore be necessary to show that having only values with $p=16$, instead of $8$ doesn't prevent the runner from being lonely.
+\newline
+\newline
+Here is some visual values of $\frac{\Delta v(x)}{\Delta v(y)}$ ratios, that helps with understanding this: \newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{1}{8}$: Runner not lonely when: $0.125+8p, 7.125+8p$ (2 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{1}{16}$: Runner not lonely when: $0.125+16p, 1.125+16p, 14.125+16p, 15.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{1}{24}$: Runner not lonely when: $0.125+24p, 1.125+24p, 2.125+24p, 21.125+24p, 22.125+24p, 23.125+24p$ (6 values).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{3}{8}$: Runner not lonely when: $0.125+8p, 5.125+8p$ (2 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{3}{16}$: Runner not lonely when: $0.125+16p, 5.125+16p, 10.125+16p, 11.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{3}{24}$: Runner not lonely when: $0.125+8p, 7.125+8p$ (Same as 1/8).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{5}{8}$: Runner not lonely when: $0.125+8p, 3.125+8p$ (2 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{5}{16}$: Runner not lonely when: $0.125+16p, 3.125+16p, 6.125+16p, 13.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{5}{24}$: Runner not lonely when: $0.125+24p, 5.125+24p, 9.125+24p, 10.125+24p, 14.125+24p, 19.125+24p$ (6 values).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{7}{8}$: Runner not lonely when: $0.125+8p, 1.125+8p$ (2 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{7}{16}$: Runner not lonely when: $0.125+16p, 2.125+16p, 7.125+16p, 9.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{7}{24}$: Runner not lonely when: $0.125+24p, 3.125+24p, 7.125+24p, 10.125+24p, 14.125+24p, 17.125+24p$ (6 values).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{9}{16}$: Runner not lonely when: $0.125+16p, 5.125+16p, 7.125+16p, 14.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{9}{24}$: Runner not lonely when: $0.125+8p, 5.125+8p$ (Same as 3/8).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{11}{16}$: Runner not lonely when: $0.125+16p, 7.125+16p, 10.125+16p, 13.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{11}{24}$: Runner not lonely when: $0.125+24p, 2.125+24p, 4.125+24p, 11.125+24p, 13.125+24p, 15.125+24p$ (6 values).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{13}{16}$: Runner not lonely when: $0.125+16p, 1.125+16p, 6.125+16p, 11.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{13}{24}$: Runner not lonely when: $0.125+24p, 9.125+24p, 11.125+24p, 13.125+24p, 20.125+24p, 22.125+24p$ (6 values).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{15}{16}$: Runner not lonely when: $0.125+16p, 1.125+16p, 2.125+16p, 3.125+16p$ (4 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{15}{24}$: Runner not lonely when: $0.125+8p, 3.125+8p$ (Same as 5/8).
+\newline
+\newline
+For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{17}{24}$: Runner not lonely when: $0.125+24p, 4.125+24p, 7.125+24p, 11.125+24p, 14.125+24p, 21.125+24p$ (6 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{19}{24}$: Runner not lonely when: $0.125+24p, 1.125+24p, 5.125+24p, 10.125+24p, 15.125+24p, 20.125+24p$ (6 values). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{21}{24}$: Runner not lonely when: $0.125+8p, 1.125+8p$ (Same as 7/8). \newline For $\frac{\Delta v(x)}{\Delta v(y)} =\frac{23}{24}$: Runner not lonely when: $0.125+24p, 1.125+24p, 2.125+24p, 3.125+24p, 4.125+24p, 5.125+24p$ (6 values).
+\newline
+\newline
+We can see patterns showing that there's a constant increase in values where the runner is not lonely as the period gets higher, but as it does so, the values it needs to completely prevent a runner from being lonely, also increases. Values like $\frac{3}{24}$ can be simplified to $\frac{1}{8}$ and therefore has the same value as it does. \newline
+Further more, theorem 5. prevents the runner from ever being lonely with only values resulting in a period that equals a product of $8$ ($>8$), because of the theorems nature of there having to be an even value preventing the runner from being lonely at the time $t = (\frac{p}{2}+1/k)\times (\frac{\Delta v(x)}{p})$.
+
+\subsection*{Theorem 8.}\textit{For values of $\Delta v$ (periods), it follows that, if a positive integer $i>1$ and $<$ an odd number $x$, a close-enough approximation of the ratio needed to prevent a runner from being lonely at time $t= \frac{(i+1/k)}{\Delta v}$ is found by (for $i=2$): $\frac{(x\times 1/i)}{x}$. (For $i=3$): $\frac{(x\times 1/i)}{x}$, or $\frac{(x\times 2/i)}{x}$. (For $i=4$): $\frac{(x\times 1/i)}{x}$, or $\frac{(x\times 2/i)}{x}$, or $\frac{(x\times 3/i)}{x}$.}
+\newline
+\newline
+The limitation with this theorem is that for even values this is also true, but it's not to be depended on because of the fact that even values can, at times, be simplified further and conclusive patterns are therefore harder to identify. As the theorem states, it's an approximation that's given by the calculation. This is because the result isn't always an integer, but by rounding off the result an accurate value is acquired.
+\newline
+\newline
+Let's have a look at the calculation in a programming-friendly manner: \newline For a positive integer $i > 1$ and an odd number $x > i$ and an integer $1 < j < i$ (j has to be bigger than 1 and less than i), as long as i is bigger than j, the ratio needed to prevent a runner from being lonely for value x: $\frac{(x\times j/i)}{x}$, or (j+1) $\frac{(x\times j/i)}{x}$. 
+\newline
+\newline
+For Java, as practical example: while($j < i$) double result $= \frac{(x\times j/i)}{x}$; j++;
+\newline
+\newline
+Example where $x = 7$: \newline For $i=2$: then, for the period $7$, $t= \frac{2+0.125}{\Delta v}$ is only lonely when the ratio has a value of approximately $\frac{7\times 1/2}{7} \rightarrow \frac{3.5}{7}$, rounded off this equals $\frac{3}{7}$.
+\newline
+\newline
+For $i=3$: then, for the period $7$, $t= \frac{3+0.125}{\Delta v}$ is only lonely when the ratio has a value of either $\frac{7\times 1/3}{7}\rightarrow\frac{2.333...}{7}$, rounded off this equals \underline{$\frac{2}{7}$}. Or $\frac{7\times 2/3}{7}\rightarrow\frac{4,666...}{7}$, rounded off this equals $\frac{4}{7}$. 
+\newline
+\newline
+Example where $x = 11$: \newline For $i=2$: then, for the period $11$, $t= \frac{2+0.125}{\Delta v}$ is only lonely when the ratio has a value of approximately $\frac{11\times 1/2}{11} \rightarrow \frac{5.5}{11}$, rounded off this equals $\frac{5}{11}$.
+\newline
+\newline
+For $i=3$: then, for the period $11$, $t= \frac{3+0.125}{\Delta v}$ is only lonely when the ratio has a value of either $\frac{11\times 1/3}{11}\rightarrow\frac{3.666...}{11}$, rounded off this equals $\frac{3}{11}$. Or $\frac{11\times 2/3}{11}\rightarrow\frac{7.333...}{11}$, rounded off this equals \underline{$\frac{7}{11}$}. 
+\newline
+\newline
+This theorem has been mainly focused around the $\Delta v$ with the biggest value. The theorem is also relevant if there is an unknown amount of $\Delta v$ bigger than the $\Delta v$ being inspected. The required values are spread out in the same way, the difference being that the integer j doesn't have to be smaller than the integer i, as in the case above.
+\subsection*{Proof of Claim (3.) 9.}\textit{With the theorems now presented an attempt to prove Claim 3. will be looked at.}
+\newline
+\newline
+Lemma 1. gives us the first definite $\Delta v$-values needed. The slowest $\Delta v$ called $\Delta v(s)$, and another $\Delta v$ that equals $8$, or some product of $8$, times bigger than $\Delta v(s)$, let this $\Delta v$ be called $\Delta v(2)$. \newline $\Delta v(2)$ cannot be the biggest $\Delta v$, since applying theorem 7, as well as theorem 8. will lead us to the result in theorem 2. where the amount of runners exceeds the conjecture's requirement. However, for the then biggest $\Delta v$: $\Delta v(b)$, together with $\Delta v(2)$, and $\Delta v(s)$, cannot be combined with any $4$ remaining  $\Delta v$, so that the conditions of theorem 4. and theorem 8. are fulfilled.
+\newline
+\newline
+Theorem 8. leads to the conclusion that the biggest $\Delta v$ requires values according to the theorems calculations and thus the different $\Delta v$ will be spread out in a manner that leads to there having to be $9$ $(k+1)$ runners in total, for a runner to never be lonely. This is the case because for every $\Delta v$ the theorems conditions must be fulfilled, and what follows is we end up with at least $9$ $(k+1)$ runners.
+\newline
+\newline
+For other values of k, in the conjecture, the patterns in this paper seems to hold up as well. I haven't given much thought to a general case because I want to receive some feedback about the proof doing so. I also realize the way the proof is tied up and how the patterns are connected, may be a bit clunky and need further inspection. However, I felt critique to this paper's content was to be prioritized. 
+\end{document}
